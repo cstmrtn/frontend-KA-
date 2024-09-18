@@ -18,12 +18,15 @@ body {
 
 .zold {
     background-color: green;
+    order: 3;
 }
 
 .sarga {
     background-color: yellow;
+    order: 2;
 }
 
 .lila {
     background-color: purple;
+    order: 2;
 }
