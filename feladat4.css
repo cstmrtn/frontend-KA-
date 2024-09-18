@@ -1,0 +1,23 @@
+div
+{
+    width: 100%;
+    height: 400px;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+
+}
+ul{
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0%;
+    margin: 0%;
+    
+}
+li{
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+}
