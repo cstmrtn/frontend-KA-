@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurzusok kezelése</title>
+</head>
+<body>
+    <h1>Kurzusok kezelése</h1>
+    <ul id="courses-list"></ul>
+
+    <h2>Új kurzus létrehozása</h2>
+    <form id="create-course-form">
+        <input type="text" id="new-course-name" placeholder="Kurzus neve" required />
+        <button type="submit">Létrehozás</button>
+    </form>
+
+    <div id="course-details" style="display:none;">
+        <h2>Kurzus részletei</h2>
+        <p id="course-name"></p>
+        <h3>Diákok</h3>
+        <ul id="students-list"></ul>
+        <h3>Diák hozzárendelése</h3>
+        <form id="add-student-form">
+            <input type="text" id="student-name" placeholder="Diák neve" required />
+            <button type="submit">Hozzáadás</button>
+        </form>
+    </div>
+<script src="feladat.js"></script>
+</body>
+</html>
