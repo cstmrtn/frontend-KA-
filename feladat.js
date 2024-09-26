@@ -66,35 +66,55 @@ const apiUrl = "https://vvri.pythonanywhere.com/api/courses";
 
         // diak hozzarendeles
         function addStudent(courseId, studentName) {
-            fetch(`${apiUrl}/${courseId}/students`, {
+            fetch(`https://vvri.pythonanywhere.com/api/students`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name: studentName })
+                headers: { "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                 },
+                body: JSON.stringify({ 
+                    name: studentName,
+                    course_id : courseId
+                 })
             })
+            .then(response => response.json())
+            .then(data => console.log(data))
             .then(() => loadCourses())
             .catch(error => console.error("Hiba történt:", error));
         }
 
         // diak szerkesztes
-        function editStudent(courseId, student) {
+        function editStudent(courseId, student, studentId) {
             const newName = prompt("Add meg az új nevet", student.name);
             if (newName) {
-                fetch(`${apiUrl}/${courseId}/students/${student.id}`, {
+                fetch(`https://vvri.pythonanywhere.com/api/students/${studentId}`, {
                     method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ name: newName })
+                    headers:  {"Content-Type": "application/json", 
+                        "Access-Control-Allow-Origin": "*" 
+                    },
+                    body: JSON.stringify({ 
+                        name: newName,
+                        course_id : courseId 
+                    })
                 })
                 .then(() => loadCourses())
                 .catch(error => console.error("Hiba történt:", error));
-            }
+            } 
         }
 
         // torles
         function deleteStudent(courseId, studentId) {
             if (confirm("Biztosan törlöd a diákot?")) {
-                fetch(`${apiUrl}/${courseId}/students/${studentId}`, {
-                    method: "DELETE"
+                fetch(`https://vvri.pythonanywhere.com/api/students/${studen.id}`, {
+                    method: "DELETE",
+                    headers:  {"Content-Type": "application/json", 
+                        "Access-Control-Allow-Origin": "*" 
+                    },
+                    body: JSON.stringify({ 
+                        name: DeleteName,
+                        course_id : courseId 
+                    })
                 })
+                
                 .then(() => loadCourses())
                 .catch(error => console.error("Hiba történt:", error));
             }
